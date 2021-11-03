@@ -10,7 +10,7 @@ interface Provider {
 
 const TodoList = () => {
     const [todos, setTodos] = useState<Provider[]>([]);
-    const [checked, setChecked] = useState(false);
+    
     const AddTodo = (newTodo: string) => {
         const newObj =[{completed : false, todo : newTodo }]
         const cloneTodos = [...todos, ...newObj];
