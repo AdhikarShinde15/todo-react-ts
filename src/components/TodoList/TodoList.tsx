@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AddItem from "../AddItem.tsx/AddItem";
 import styles from "./TodoList.module.scss";
 import  "./TodoList.module.scss";
-
+import { Data }from "./Todo.types";
 interface Provider {
     completed: boolean;
     todo: string;
@@ -10,7 +10,9 @@ interface Provider {
 
 const TodoList = () => {
     const [todos, setTodos] = useState<Provider[]>([]);
-    
+    useEffect(() => {
+       setTodos(Data);
+    }, []);
     const AddTodo = (newTodo: string) => {
         const newObj =[{completed : false, todo : newTodo }]
         const cloneTodos = [...todos, ...newObj];
@@ -36,10 +38,10 @@ const TodoList = () => {
     return <>
         {
             todos.map(ele => <div className={styles.flexListItems} key={Math.random()}>
-                {(ele.completed) ? <p><del>{ele.todo}</del></p> : <p>{ele.todo}</p> }
-                <div>
+                {(ele.completed) ? <p className={styles.todo}><del>{ele.todo}</del></p> : <p className={styles.todo}>{ele.todo}</p> }
+                <div className={styles.action}>
                     <input onChange={(e) => CompletedTodo(e,ele.todo)} type="checkbox" />
-                    <button onClick={() => DeleteTodo(ele.todo)}><i className="fas fa-trash"></i></button>
+                    <button className={styles.delBtn} onClick={() => DeleteTodo(ele.todo)}><i className="fas fa-trash"></i></button>
                 </div>
             </div>)
         }

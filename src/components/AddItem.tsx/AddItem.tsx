@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { IAddTodo } from "./AddItem.types";
+import styles from "./AddItem.module.scss";
 
 const AddItem = ({ AddTodo }: IAddTodo) => {
     const [newTodo, setNewTodo] = useState('');
-    return <>
-    <p>Add to the Todo List</p>
-    <input value={newTodo} onChange={(e) => setNewTodo(e.target.value)}/>
-    <button onClick={() => { AddTodo(newTodo); setNewTodo(''); }}>Add Item</button>
-    </>
+    return <div className={styles.addItem}>
+    <p className={styles.inLabel}>Add to the Todo List</p>
+    <input className={styles.input} value={newTodo} onChange={(e) => setNewTodo(e.target.value)}/>
+    <button className={styles.addBtn} onClick={() => { AddTodo(newTodo); setNewTodo(''); }}>ADD ITEM</button>
+    </div>
 }
 
 export default AddItem;

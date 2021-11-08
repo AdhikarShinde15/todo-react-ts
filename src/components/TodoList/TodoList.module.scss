@@ -2,8 +2,26 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background: #ff5672;
+    margin-bottom: 0.5rem;
+    color: white;
 }
 
 .forStrike {
     text-decoration: line-through;
+}
+
+.todo {
+    margin-left: 4rem;
+}
+
+.action {
+    margin-right: 4rem;
+}
+
+.delBtn {
+    border: none;
+    background: none;
+    color: white;
+    font-size: 1rem;
 }
