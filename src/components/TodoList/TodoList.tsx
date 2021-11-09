@@ -3,7 +3,6 @@ import AddItem from "../AddItem.tsx/AddItem";
 import styles from "./TodoList.module.scss";
 import  "./TodoList.module.scss";
 import { Data }from "./Todo.types";
-import { computeHeadingLevel } from "@testing-library/dom";
 
 interface Provider {
     completed: boolean;
@@ -12,7 +11,6 @@ interface Provider {
 
 const TodoList = () => {
     const [todos, setTodos] = useState<Provider[]>([]);
-    const [check, setCheck] = useState(false);
     useEffect(() => {
        setTodos(Data);
     }, []);
